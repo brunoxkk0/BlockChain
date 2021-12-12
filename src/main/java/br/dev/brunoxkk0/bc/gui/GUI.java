@@ -116,9 +116,7 @@ public class GUI {
                     System.out.println("  |  -> Timeout: " + block.getTimestamp());
                     System.out.println("  | - Transações:");
 
-                    block.getTransactions().forEach(transaction -> {
-                        System.out.println("  | | " + transaction.getFromAdress() + " -> " + transaction.getToAdress() + " : " + transaction.getAmmount());
-                    });
+                    block.getTransactions().forEach(transaction -> System.out.println("  | | " + transaction.getFromAdress() + " -> " + transaction.getToAdress() + " : " + transaction.getAmmount()));
 
                 });
 
