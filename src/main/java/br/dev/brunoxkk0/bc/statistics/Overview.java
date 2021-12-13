@@ -19,6 +19,7 @@ public class Overview {
         long maxTime =          (temp = StatisticStack.getStatisticMap().values().stream().max(Comparator.comparingLong(Statistics::getConsumedTime)).orElse(null)) != null ? temp.getConsumedTime() : -1;
         long mediumTime =       elapsedTotalTime / StatisticStack.getStatisticMap().size();
 
+        BlockChain.logger.info("BlockChain difficulty: " + BlockChain.getInstance().getDifficulty());
         BlockChain.logger.info("Total consumed time: " + elapsedTotalTime + "MS.");
         BlockChain.logger.info("Max time consumed by a block: " + maxTime + "MS.");
         BlockChain.logger.info("Medium time for a block: " + mediumTime + "MS.");

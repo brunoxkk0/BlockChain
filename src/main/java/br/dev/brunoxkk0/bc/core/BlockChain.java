@@ -21,6 +21,19 @@ public class BlockChain {
     private final int difficulty;
     private final double miningReward;
 
+    public BlockChain(){
+        createGenesisBlock();
+        this.difficulty = 6;
+        this.miningReward = 10;
+    }
+
+    private void createGenesisBlock(){
+        Block block = new Block(System.currentTimeMillis(), new ArrayList<>());
+        block.setPreviousHash("0");
+        block.recalculateHash();
+        chain.add(block);
+    }
+
     public int getDifficulty() {
         return difficulty;
     }
@@ -33,19 +46,6 @@ public class BlockChain {
 
     public ArrayList<Transaction> getPendingTransactions() {
         return pendingTransactions;
-    }
-
-    public BlockChain(){
-        createGenesisBlock();
-        this.difficulty = 3;
-        this.miningReward = 10;
-    }
-
-    private void createGenesisBlock(){
-        Block block = new Block(System.currentTimeMillis(), new ArrayList<>());
-        block.setPreviousHash("0");
-        block.recalculateHash();
-        chain.add(block);
     }
 
     public LinkedList<Block> getChain() {

@@ -139,8 +139,8 @@ public class GUI {
             case 5:{
                 clean();
 
-                if(BlockChain.getInstance().getChain().size() > 1){
-                    int pos = 1 + new Random().nextInt(BlockChain.getInstance().getChain().size() - 1);
+                if(BlockChain.getInstance().getChain().size() > 2){
+                    int pos = 1 + new Random().nextInt(BlockChain.getInstance().getChain().size() - 2);
                     Block block = BlockChain.getInstance().getChain().get(pos);
 
                     System.out.println("Alterado uma transação do bloco " + pos);
@@ -154,7 +154,7 @@ public class GUI {
                     System.out.println("Block Chain está válida: " + BlockChain.getInstance().isValid());
                     System.out.println("__________________________________________");
                 }else{
-                    System.out.println("É necessário mais 2 blocos para poder realizar o teste.");
+                    System.out.println("É necessário no mínimo 3 blocos para poder realizar o teste.");
                 }
 
                 System.out.println();
